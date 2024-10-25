@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://xc1pe0i2pugx"]
+
+[ext_resource type="Texture2D" uid="uid://chaxqdv443scw" path="res://Scenes/Menu/Assets/Menu.png" id="1_ijb8n"]
+[ext_resource type="Script" path="res://Scenes/Menu/MenuScript.gd" id="1_r2j0t"]
+[ext_resource type="Texture2D" uid="uid://bpnam31bg4eas" path="res://Scenes/Menu/Assets/play.png" id="2_e1j12"]
+[ext_resource type="FontFile" uid="uid://f7ovlfqr61w6" path="res://Scenes/Menu/Assets/Jaro-Regular-VariableFont_opsz.ttf" id="2_tqt1u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hs34x"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r2j0t")
+
+[node name="Menu" type="Sprite2D" parent="."]
+texture_repeat = 1
+position = Vector2(644.25, 310)
+scale = Vector2(0.676823, 0.648148)
+texture = ExtResource("1_ijb8n")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -90.0
+offset_top = -209.0
+offset_right = 378.0
+offset_bottom = 297.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+alignment = 1
+
+[node name="Jugar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_tqt1u")
+icon = ExtResource("2_e1j12")
+flat = true
+icon_alignment = 1
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0.415686, 0, 1)
+theme_override_fonts/font = ExtResource("2_tqt1u")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/hover = SubResource("StyleBoxFlat_hs34x")
+text = "Salir"
+flat = true
+clip_text = true
+icon_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.279885, 0.519008, 0.336339, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0.588235, 0, 1)
+theme_override_fonts/font = ExtResource("2_tqt1u")
+theme_override_font_sizes/font_size = 100
+button_pressed = true
+text = "Musica"
+flat = true
+alignment = 1
+icon_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 423.0
+offset_top = 37.0
+offset_right = 659.0
+offset_bottom = 112.0
+scale = Vector2(1.56195, 2.23522)
+theme_override_colors/font_color = Color(0.418002, 0.348284, 0.289561, 1)
+theme_override_fonts/font = ExtResource("2_tqt1u")
+theme_override_font_sizes/font_size = 60
+text = "Inti Game"
+
+[node name="LabelInstrucciones" type="Label" parent="."]
+layout_mode = 0
+offset_left = 720.0
+offset_top = 198.0
+offset_right = 1228.0
+offset_bottom = 429.0
+scale = Vector2(0.751515, 0.927858)
+theme_override_colors/font_color = Color(0.418002, 0.348284, 0.289561, 1)
+theme_override_fonts/font = ExtResource("2_tqt1u")
+theme_override_font_sizes/font_size = 60
+text = "Agarra al raton, 
+pero no te olvides de 
+tu comida!"
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="toggled" from="VBoxContainer/CheckButton" to="." method="_on_check_button_toggled"]

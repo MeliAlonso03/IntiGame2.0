@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvlxtmcfen8cu"]
+
+[ext_resource type="Script" path="res://Scenes/Menu/GameOver.gd" id="1_qf7fb"]
+[ext_resource type="Texture2D" uid="uid://chaxqdv443scw" path="res://Scenes/Menu/Assets/Menu.png" id="1_vfli8"]
+[ext_resource type="FontFile" uid="uid://f7ovlfqr61w6" path="res://Scenes/Menu/Assets/Jaro-Regular-VariableFont_opsz.ttf" id="2_a1e1f"]
+
+[node name="GameOver" type="Node2D"]
+position = Vector2(-375, 133)
+script = ExtResource("1_qf7fb")
+
+[node name="backgroundGameOver" type="Sprite2D" parent="."]
+position = Vector2(701, 356)
+texture = ExtResource("1_vfli8")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 718.0
+offset_top = 59.0
+offset_right = 1154.0
+offset_bottom = 238.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.855777, 0.136905, 0.215383, 1)
+theme_override_fonts/font = ExtResource("2_a1e1f")
+theme_override_font_sizes/font_size = 100
+text = "
+Game Over
+"
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_a1e1f")
+theme_override_font_sizes/font_size = 36
+text = "Volver a Jugar"
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_a1e1f")
+theme_override_font_sizes/font_size = 30
+text = "
+  
+"
+justification_flags = 11
+uppercase = true
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_a1e1f")
+theme_override_font_sizes/font_size = 36
+text = "Siguiente Nivel"
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

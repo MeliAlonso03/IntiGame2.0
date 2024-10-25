@@ -1,0 +1,89 @@
+[gd_scene load_steps=7 format=3 uid="uid://cjcgnl6jtiury"]
+
+[ext_resource type="FontFile" uid="uid://f7ovlfqr61w6" path="res://Scenes/Menu/Assets/Jaro-Regular-VariableFont_opsz.ttf" id="1_ra2nq"]
+[ext_resource type="Script" path="res://Scenes/HUD/scriptsHUD/HUDscript.gd" id="1_wwwed"]
+[ext_resource type="Script" path="res://Scenes/HUD/scriptsHUD/IrMenu.gd" id="2_ghsyh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dr5k3"]
+font = ExtResource("1_ra2nq")
+font_color = Color(0.872054, 0.331556, 9.62615e-07, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oggdb"]
+bg_color = Color(0.709804, 0.411765, 0.054902, 0.968627)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kbmqp"]
+bg_color = Color(0.709804, 0.411765, 0.054902, 0.72549)
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wwwed")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="background" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+color = Color(1, 1, 0.713726, 0.658824)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/background"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="lives" type="HBoxContainer" parent="VBoxContainer/background/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+alignment = 2
+
+[node name="space1" type="Control" parent="VBoxContainer/background/HBoxContainer" node_paths=PackedStringArray("shortcut_context")]
+layout_mode = 2
+size_flags_horizontal = 3
+shortcut_context = NodePath("../lives")
+
+[node name="Score" type="Label" parent="VBoxContainer/background/HBoxContainer"]
+layout_mode = 2
+text = "Point: "
+label_settings = SubResource("LabelSettings_dr5k3")
+
+[node name="Score2" type="Label" parent="VBoxContainer/background/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_dr5k3")
+
+[node name="space2" type="Control" parent="VBoxContainer/background/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/background/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="Menu" type="Button" parent="VBoxContainer/background/HBoxContainer/Margin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_ra2nq")
+theme_override_font_sizes/font_size = 23
+theme_override_styles/normal = SubResource("StyleBoxFlat_oggdb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kbmqp")
+text = "   Menu   "
+script = ExtResource("2_ghsyh")
+
+[node name="space3" type="Control" parent="VBoxContainer/background/HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/background/HBoxContainer/Margin/Menu" to="VBoxContainer/background/HBoxContainer/Margin/Menu" method="_on_pressed"]

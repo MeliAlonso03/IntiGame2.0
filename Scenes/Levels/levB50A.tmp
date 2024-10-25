@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://dj1x6454rd24a"]
+
+[ext_resource type="PackedScene" uid="uid://c188oq13086fx" path="res://Scenes/SceneBackground/sceneBackground.tscn" id="1_coed3"]
+[ext_resource type="PackedScene" uid="uid://d7dydsx14ymw" path="res://Scenes/PlayerTopDown/player_top_down_cat.tscn" id="2_uorvo"]
+[ext_resource type="PackedScene" uid="uid://dg1iyc3fej2sy" path="res://Scenes/PlayerEnemy/PlayerEnemy.tscn" id="3_8iiyg"]
+[ext_resource type="Script" path="res://Scenes/PlayerTopDown/esceneWithPlayer1/Collision.gd" id="4_te776"]
+[ext_resource type="PackedScene" uid="uid://c6nm3m6n21b5c" path="res://Scenes/Coleccionables/FishCollection.tscn" id="5_xonek"]
+
+[node name="Level1" type="Node"]
+
+[node name="SceneBackground" parent="." instance=ExtResource("1_coed3")]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_uorvo")]
+position = Vector2(361, 244)
+scale = Vector2(1.32, 1.65371)
+
+[node name="PlayerEnemy" parent="." instance=ExtResource("3_8iiyg")]
+position = Vector2(698, 482)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("4_te776")
+
+[node name="BordesPantalla" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 38, -8, 643, 1158, 651, 1153, 55, 0, 43, 25, -84, 1170, -53, 1390, 767, -46, 653, -39, -38)
+
+[node name="FishCollection" parent="." instance=ExtResource("5_xonek")]
+position = Vector2(136, 120)
+
+[node name="FishCollection2" parent="." instance=ExtResource("5_xonek")]
+position = Vector2(366, 556)
+
+[node name="FishCollection3" parent="." instance=ExtResource("5_xonek")]
+position = Vector2(1033, 520)

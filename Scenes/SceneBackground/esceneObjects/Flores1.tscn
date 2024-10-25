@@ -1,0 +1,63 @@
+[gd_scene load_steps=8 format=3 uid="uid://c64acub68tek"]
+
+[ext_resource type="Texture2D" uid="uid://dh6vrjmqu2enn" path="res://Scenes/SceneBackground/assets/assetMaceta2.png" id="1_tvqfk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l648"]
+atlas = ExtResource("1_tvqfk")
+region = Rect2(0, 0, 31, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ru36j"]
+atlas = ExtResource("1_tvqfk")
+region = Rect2(31, 0, 31, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufgha"]
+atlas = ExtResource("1_tvqfk")
+region = Rect2(62, 0, 31, 94)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xomt"]
+atlas = ExtResource("1_tvqfk")
+region = Rect2(0, 0, 31, 94)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2skdi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l648")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ru36j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufgha")
+}],
+"loop": false,
+"name": &"Romper",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xomt")
+}],
+"loop": true,
+"name": &"quieto",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2urqr"]
+size = Vector2(24.1667, 32)
+
+[node name="Flores1" type="Sprite2D"]
+position = Vector2(1, 0)
+scale = Vector2(1.05882, 1)
+hframes = 3
+frame = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2skdi")
+animation = &"Romper"
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-2.08333, 6)
+shape = SubResource("RectangleShape2D_2urqr")

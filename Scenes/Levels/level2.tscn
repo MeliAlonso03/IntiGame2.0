@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv62jnkfbmy35"]
+
+[ext_resource type="PackedScene" uid="uid://cel5ygxnm400r" path="res://Scenes/SceneBackground/sceneBackground2.tscn" id="1_556m0"]
+[ext_resource type="PackedScene" uid="uid://c6nm3m6n21b5c" path="res://Scenes/Coleccionables/FishCollection.tscn" id="2_gj6t0"]
+[ext_resource type="PackedScene" uid="uid://c0hadfn6ufeg3" path="res://Scenes/SceneBackground/esceneObjects/flores2.tscn" id="3_y2a0c"]
+[ext_resource type="PackedScene" uid="uid://dg1iyc3fej2sy" path="res://Scenes/PlayerEnemy/PlayerEnemy.tscn" id="4_6r4ci"]
+[ext_resource type="PackedScene" uid="uid://d7dydsx14ymw" path="res://Scenes/PlayerTopDown/player_top_down_cat.tscn" id="5_111ub"]
+[ext_resource type="Script" path="res://Scenes/PlayerTopDown/esceneWithPlayer1/Collision.gd" id="6_qh3sl"]
+[ext_resource type="PackedScene" uid="uid://b87l13b74nrl8" path="res://Scenes/GameController/gameController.tscn" id="7_0nhvr"]
+
+[node name="Level2" type="Node"]
+
+[node name="SceneBackground" parent="." instance=ExtResource("1_556m0")]
+
+[node name="FishCollection" parent="." instance=ExtResource("2_gj6t0")]
+position = Vector2(1002, 186)
+
+[node name="FishCollection3" parent="." instance=ExtResource("2_gj6t0")]
+position = Vector2(836, 553)
+
+[node name="FishCollection2" parent="." instance=ExtResource("2_gj6t0")]
+position = Vector2(138, 580)
+
+[node name="PlayerEnemy" parent="." instance=ExtResource("4_6r4ci")]
+position = Vector2(117, 109)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("5_111ub")]
+position = Vector2(612, 252)
+
+[node name="Flores6" parent="." instance=ExtResource("3_y2a0c")]
+position = Vector2(839, 540)
+scale = Vector2(2.03375, 2.28)
+
+[node name="Flores2" parent="." instance=ExtResource("3_y2a0c")]
+position = Vector2(136, 566)
+scale = Vector2(1.61322, 1.6)
+
+[node name="Flores3" parent="." instance=ExtResource("3_y2a0c")]
+position = Vector2(1001, 168)
+scale = Vector2(1.84951, 2.62332)
+
+[node name="Flores4" parent="." instance=ExtResource("3_y2a0c")]
+position = Vector2(113, 104)
+scale = Vector2(1.76468, 2.04618)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+script = ExtResource("6_qh3sl")
+
+[node name="BordesPantalla" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(0, 38, -8, 643, 1158, 651, 1153, 55, 0, 43, 25, -84, 1170, -53, 1390, 767, -46, 653, -39, -38)
+
+[node name="GameController" parent="." instance=ExtResource("7_0nhvr")]

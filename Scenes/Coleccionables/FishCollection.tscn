@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6nm3m6n21b5c"]
+
+[ext_resource type="Script" path="res://Scenes/Coleccionables/FishCollection.gd" id="1_1b5a6"]
+[ext_resource type="Texture2D" uid="uid://djbxcyknb08wv" path="res://Scenes/Coleccionables/Assets/Fish.png" id="2_c3kbs"]
+[ext_resource type="AudioStream" uid="uid://cfvjovni0jbx" path="res://Scenes/Music/sounds/ANIMALCAT_6003_40_1.mp3" id="3_egv4l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g42rw"]
+radius = 8.0
+height = 32.0
+
+[node name="FishCollection" type="Area2D"]
+script = ExtResource("1_1b5a6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_c3kbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_g42rw")
+
+[node name="SonidoAgarrarFish" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_egv4l")
+pitch_scale = 1.77
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
