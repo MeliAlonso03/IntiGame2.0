@@ -4,11 +4,7 @@ var sonidoFondo = preload("res://Scenes/Music/sounds/SonidoDeFondo.mp3")
 
 func _ready():
 	change_sound(sonidoFondo)
-	pass # Replace with function body.
 
-
-func _process(delta):
-	pass
 
 
 func _on_jugar_pressed():

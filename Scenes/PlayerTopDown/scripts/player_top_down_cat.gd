@@ -21,8 +21,6 @@ var input_direction:Vector2
 var point: int = 0
 
 
-func _ready() -> void:
-	pass
 
 func point_suma() -> int:
 	point +=1

@@ -2,7 +2,6 @@ extends PlayerState
 
 func enter():
 	print("State Idle | Direction: " + player.current_direction._name)
-	#player.animation_player.play(player.animations.idle_down)
 	animation_direction()
 
 func process(_delta):

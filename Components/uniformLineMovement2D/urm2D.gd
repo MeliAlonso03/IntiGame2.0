@@ -9,8 +9,6 @@ class_name URM2D
 @export var character:CharacterBody2D #El objet que se va a mover
 @export var can_move:bool = true #detener el movimiento
 
-func _ready() -> void:
-	pass
 
 
 func get_velocity() -> Vector2:

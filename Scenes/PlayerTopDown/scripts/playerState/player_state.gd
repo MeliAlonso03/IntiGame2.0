@@ -12,8 +12,6 @@ var node:Player:
 var player:Player
 
 
-func enter():
-	pass
 
 func play_animation(new_animation:String):
 	player.current_animation = new_animation
