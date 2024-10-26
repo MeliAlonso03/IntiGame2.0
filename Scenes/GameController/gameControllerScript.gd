@@ -21,8 +21,10 @@ func playResult():
 		nueva_escena.set_resultado_partida("¡No agarraste los pescaditos!")
 	else:
 		nueva_escena.set_resultado_partida("¡Ganaste!")
-	
-	# Asegurarte de no añadir varias veces la misma escena
+	crear_nueva_escena(nueva_escena)
+
+
+func crear_nueva_escena(nueva_escena):
 	get_tree().root.add_child(nueva_escena)
 	get_tree().current_scene.queue_free()
 	get_tree().current_scene = nueva_escena
